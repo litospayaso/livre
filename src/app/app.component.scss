@@ -1,3 +1,6 @@
+// $screen-lg-min: 768px;
+$screen-lg-min: 992px;
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
@@ -116,4 +119,26 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100vw;
+  top: 57px;
+  height: calc(100vh - 57px);
+  .lateral-panel{ 
+    min-width: 304px;
+  }
+  .outlet-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: $screen-lg-min) {
+  .lateral-panel{ 
+    display: none;
+    background-color: black;
+  }
 }
