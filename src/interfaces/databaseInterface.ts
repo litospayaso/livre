@@ -1,12 +1,17 @@
 export interface DatabaseInterface {
-    exercises: (ExercisesInterface[])[];
+    exercises: ExercisesInterface[];
     lessons: LessonsInterface[];
 }
 
-export interface ExercisesInterface {
+export interface ExerciseInterface {
     audio?: string | null;
     responses: string[] ;
     question?: string | null;
+}
+
+export interface ExercisesInterface {
+    number: number;
+    exercises: ExerciseInterface[] ;
 }
 
 export interface LessonsInterface {

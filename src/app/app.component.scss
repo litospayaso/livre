@@ -121,6 +121,17 @@ ion-item.selected {
   --color: var(--ion-color-primary);
 }
 
+ion-title {
+  font-family: Baloo;
+}
+.back-arrow {
+  margin-left: 16px;
+}
+
+ion-label {
+  font-family: Baloo !important;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -130,15 +141,46 @@ ion-item.selected {
   height: calc(100vh - 57px);
   .lateral-panel{ 
     min-width: 304px;
+    -webkit-box-shadow: 1px 4px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 4px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 4px 4px 0px rgba(0,0,0,0.75);
+
+    .selected ion-icon{
+      color: var(--ion-color-primary);
+    }
   }
   .outlet-container {
     width: 100%;
+    padding: 0 8px;
+    overflow-y: auto;
+    font-family: Baloo;
+
+    &.Exercícios {
+      background-image: url("../assets/img/backgrounds/exercisesBackground.jpg");        
+    }
+
+    &.Liçãos {
+      background-image: url("../assets/img/backgrounds/homeBackground.jpg");        
+    }
+
+    &.Pesquisador {
+      background-image: url("../assets/img/backgrounds/searchBackground.jpg");
+      background-size: cover;        
+    }
   }
+}
+
+ion-header ion-menu-button {
+  display: none;
 }
 
 @media (max-width: $screen-lg-min) {
   .lateral-panel{ 
     display: none;
     background-color: black;
+  }
+
+  ion-header ion-menu-button {
+    display: block;
   }
 }

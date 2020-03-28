@@ -18,7 +18,8 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+        <ion-menu-button *ngIf="!pageBack"></ion-menu-button>
+        <ion-icon *ngIf="pageBack" class="back-arrow" name="arrow-back-outline" [routerLink]="[pageBack]" routerDirection="root"></ion-icon>
       </ion-buttons>
       <ion-title>{{title}}</ion-title>
     </ion-toolbar>
@@ -27,14 +28,14 @@
     <div class="lateral-panel">
       <ion-content>
         <ion-list>
-          <ion-item *ngFor="let page of appPages" [routerLink]="[page.url]" routerDirection="root">
+          <ion-item *ngFor="let page of appPages" [routerLink]="[page.url]" routerDirection="root" [ngClass]="title === page.title ? 'selected' : ''">
             <ion-icon [name]="page.icon" slot="start"></ion-icon>
             <ion-label>{{page.title}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>
     </div>
-    <div class="outlet-container">
+    <div class="outlet-container" [ngClass]="title">
       <router-outlet></router-outlet>
     </div>
   </div>

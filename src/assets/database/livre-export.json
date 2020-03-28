@@ -1,6 +1,9 @@
 {
   "exercises" : [
-    [{"audio":"11","responses":["Kaixo!"]},{"question":"kaixo, ni Miguel naiz","responses":["hola, yo soy Miguel"]}]
+    {
+      "number": 1,
+      "exercises": [{"audio":"11","responses":["Kaixo!"]},{"question":"kaixo, ni Miguel naiz","responses":["hola, yo soy Miguel"]}]
+    }
   ],
   "lessons" : [ {
     "title" : "Introducción",

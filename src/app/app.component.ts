@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MenuController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 import { Router, ResolveEnd } from '@angular/router';
 
 import { Platform } from '@ionic/angular';
@@ -19,16 +20,32 @@ import { filter } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public title = '';
+  public pageBack = '';
   public appPages = [
     {
-      title: 'Lecciones',
+      title: 'Liçãos',
       url: '/home',
       icon: 'home'
+    },
+    {
+      title: 'Exercícios',
+      url: '/exercises',
+      icon: 'create'
+    },
+    {
+      title: 'Pesquisador',
+      url: '/search',
+      icon: 'search'
     },
     {
       title: 'Diccionario',
       url: '/diccionario',
       icon: 'book'
+    },
+    {
+      title: 'Acerca do Livre',
+      url: '/about',
+      icon: 'help'
     },
   ];
   constructor(
@@ -38,12 +55,28 @@ export class AppComponent implements OnInit {
     private http: HttpClient,
     private databaseService: DatabaseService,
     private router: Router,
+    private route: ActivatedRoute,
     private menu: MenuController
   ) {
     this.initializeApp();
     this.router.events.pipe(filter(event => event instanceof ResolveEnd)).subscribe(event => {
       const root: ResolveEnd = event as ResolveEnd;
-      this.setTitle(root.url.split('/')[1]);
+      const routerName = root.url.split('/')[1];
+      switch (routerName) {
+        case 'lesson':
+          this.pageBack = '/home';
+          break;
+        default:
+          this.pageBack = '';
+          break;
+      }
+      this.setTitle(routerName);
+      if (root.url.split('/').length > 2) {
+        this.title = this.databaseService.getAllData().lessons.find(e => e.number === Number(root.url.split('/').pop())).title;
+        this.pageBack = routerName === 'evaluation' ? '/exercises' : '/home';
+      } else {
+        this.pageBack = '';
+      }
     });
   }
 
@@ -67,14 +100,24 @@ export class AppComponent implements OnInit {
   }
 
   setTitle(root: string) {
-    console.log('%c root', 'background: #df03fc; color: #f8fc03', root);
     let title = 'Livre';
     switch (root) {
       case 'diccionario':
         title = 'Diccionario';
         break;
       case 'home':
-        title = 'Lecciones';
+        title = 'Liçãos';
+        break;
+      case 'exercises':
+        title = 'Exercícios';
+        break;
+      case 'search':
+        title = 'Pesquisador';
+        break;
+      case 'about':
+        title = 'Acerca do Livre';
+        break;
+      case 'lesson':
         break;
       default:
         break;
