@@ -9,7 +9,7 @@ import { LessonsInterface } from '@interfaces/databaseInterface';
 })
 export class ExercisesComponent implements OnInit {
 
-  private lessons: LessonsInterface[];
+  public lessons: LessonsInterface[];
 
   constructor(
     private databaseService: DatabaseService

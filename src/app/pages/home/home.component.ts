@@ -9,7 +9,7 @@ import { LessonsInterface } from '@interfaces/databaseInterface';
 })
 export class HomeComponent implements OnInit {
 
-  private lessons: LessonsInterface[];
+  public lessons: LessonsInterface[];
 
   constructor(
     private databaseService: DatabaseService

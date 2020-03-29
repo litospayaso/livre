@@ -11,7 +11,7 @@ import { DatabaseService } from '@services/database.service';
 })
 export class LessonComponent implements OnInit {
 
-  private lesson: LessonsInterface;
+  public lesson: LessonsInterface;
 
   constructor(
     private route: ActivatedRoute,
