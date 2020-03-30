@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '@pages/home/home.component';
 import { ExercisesComponent } from '@pages/exercises/exercises.component';
 import { DiccionarioComponent } from '@pages/diccionario/diccionario.component';
@@ -7,6 +7,7 @@ import { LessonComponent } from '@pages/lesson/lesson.component';
 import { AboutComponent } from '@pages/about/about.component';
 import { SearchComponent } from '@pages/search/search.component';
 import { EvaluationComponent } from '@pages/evaluation/evaluation.component';
+
 
 const routes: Routes = [
   {
@@ -45,9 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

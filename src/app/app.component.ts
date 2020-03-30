@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MenuController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Router, ResolveEnd } from '@angular/router';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DatabaseInterface } from '@interfaces/databaseInterface';
 import { DatabaseService } from '@services/database.service';
 
@@ -14,13 +10,13 @@ import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public selectedIndex = 0;
   public title = '';
   public pageBack = '';
+  public widthMenu = '0';
   public appPages = [
     {
       title: 'Liçãos',
@@ -48,17 +44,14 @@ export class AppComponent implements OnInit {
       icon: 'help'
     },
   ];
+
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private http: HttpClient,
     private databaseService: DatabaseService,
     private router: Router,
     private route: ActivatedRoute,
-    private menu: MenuController
   ) {
-    this.initializeApp();
+    // this.initializeApp();
     this.router.events.pipe(filter(event => event instanceof ResolveEnd)).subscribe(event => {
       const root: ResolveEnd = event as ResolveEnd;
       const routerName = root.url.split('/')[1];
@@ -80,13 +73,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
-
   ngOnInit() {
     this.getDatabase();
   }
@@ -99,6 +85,9 @@ export class AppComponent implements OnInit {
       });
   }
 
+  public toogleMenu() {
+    this.widthMenu = this.widthMenu === '0' ? '304px' : '0';
+  }
   setTitle(root: string) {
     let title = 'Livre';
     switch (root) {
@@ -123,7 +112,6 @@ export class AppComponent implements OnInit {
         break;
     }
     this.title = title;
-    this.menu.close();
   }
 
 }

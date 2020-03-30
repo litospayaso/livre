@@ -1,14 +1,14 @@
 <div>
   <span *ngFor="let lesson of lessons">
     <div class="card-element" [routerLink]="['/lesson',lesson.number]" routerLinkActive="router-link-active" >
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row>
           <ion-col col-4>
             <img src="assets/img/lessonIcons/{{lesson.number}}.png">
           </ion-col>
           <ion-col col-8>{{lesson.number}}. {{lesson.title}}</ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
     </div>
   </span>
 </div>
