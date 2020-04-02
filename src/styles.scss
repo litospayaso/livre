@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-icon{
+    margin-right: 8px;
+    cursor: pointer;
+    &.back-arrow {
+        margin-left: 0px !important;
+    }
+}
+
+mat-list-item {
+    cursor: pointer;
+}
+
+mat-toolbar {
+    cursor: default;
+}
