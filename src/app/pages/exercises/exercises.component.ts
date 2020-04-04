@@ -5,7 +5,7 @@ import { LessonsInterface } from '@interfaces/databaseInterface';
 @Component({
   selector: 'app-exercises',
   templateUrl: './exercises.component.html',
-  styleUrls: ['./exercises.component.scss'],
+  styleUrls: ['./exercises.component.scss', '../home/home.component.scss'],
 })
 export class ExercisesComponent implements OnInit {
 

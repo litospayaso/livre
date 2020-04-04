@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar>
+<mat-toolbar class="toolbar">
   <mat-icon *ngIf="!pageBack" (click)="toogleMenu()" class="menu-button">menu</mat-icon>
   <mat-icon *ngIf="pageBack" class="back-arrow" [routerLink]="[pageBack]" routerDirection="root">arrow_back</mat-icon>
   {{title}}

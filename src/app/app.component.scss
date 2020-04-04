@@ -1,6 +1,7 @@
 $screen-lg-min: 992px;
 
 .lateral-panel {
+    font-family: Baloo;
     width: 0;
     position: fixed;
     height: calc(100vh - 65px);
@@ -16,6 +17,10 @@ $screen-lg-min: 992px;
     background-color: rgba(0, 0, 0, 0.75);
 }
 
+mat-list-item {
+    font-family: Baloo;
+}
+
 ion-title {
     font-family: Baloo;
 }
@@ -27,7 +32,12 @@ ion-label {
     font-family: Baloo !important;
 }
 
+.toolbar {
+    font-family: Baloo;
+}
+
 .container {
+    font-family: Baloo;
     display: flex;
     flex-direction: row;
     position: fixed;
