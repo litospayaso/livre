@@ -12,8 +12,7 @@ import { EvaluationComponent } from '@pages/evaluation/evaluation.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: HomeComponent,
   },
   {
     path: 'home',

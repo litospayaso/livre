@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar class="toolbar">
   <mat-icon *ngIf="!pageBack" (click)="toogleMenu()" class="menu-button">menu</mat-icon>
-  <mat-icon *ngIf="pageBack" class="back-arrow" [routerLink]="[pageBack]" routerDirection="root">arrow_back</mat-icon>
+  <mat-icon *ngIf="pageBack" class="back-arrow" [routerLink]="[pageBack]" skipLocationChange routerDirection="root">arrow_back</mat-icon>
   {{title}}
 </mat-toolbar>
 
@@ -9,7 +9,7 @@
 <div id="mySidepanel" class="lateral-panel" [ngStyle]="{'width': widthMenu}">
   <div *ngIf="widthMenu === '304px'">
     <mat-list *ngFor="let page of appPages">
-      <mat-list-item [routerLink]="[page.url]" routerDirection="root" [ngClass]="title === page.title ? 'selected' : ''">
+      <mat-list-item [routerLink]="[page.url]" skipLocationChange routerDirection="root" [ngClass]="title === page.title ? 'selected' : ''">
         <mat-icon aria-hidden="false">{{page.icon}}</mat-icon>
         {{page.title}}
       </mat-list-item>
@@ -22,7 +22,7 @@
 <div class="container"> 
   <div class="lateral-menu">
     <mat-list *ngFor="let page of appPages">
-      <mat-list-item [routerLink]="[page.url]" routerDirection="root" [ngClass]="title === page.title ? 'selected' : ''">
+      <mat-list-item [routerLink]="[page.url]" skipLocationChange routerDirection="root" [ngClass]="title === page.title ? 'selected' : ''">
         <mat-icon aria-hidden="false">{{page.icon}}</mat-icon>
         {{page.title}}
       </mat-list-item>

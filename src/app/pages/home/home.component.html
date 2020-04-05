@@ -1,6 +1,6 @@
 <div class="cards-container">
   <span *ngFor="let lesson of lessons">
-    <div class="card-element" [routerLink]="['/lesson',lesson.number]" routerLinkActive="router-link-active" >
+    <div class="card-element" [routerLink]="['/lesson',lesson.number]" skipLocationChange routerLinkActive="router-link-active" >
       <div class="card-pic">
         <img src="assets/img/lessonIcons/{{lesson.number}}.png">
       </div>
