@@ -19,6 +19,7 @@
 .cards-container{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     .card-element.passed{
         opacity: 0.65;
     }
@@ -33,7 +34,9 @@
         -webkit-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
         -moz-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
         box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.75);
+        padding: 8px;
         .card-pic{
+            padding-top: 5px;
             display: inline-block;
             height: 100%;
             width: 100px;
@@ -44,6 +47,7 @@
             }
         }
         .card-text{
+            padding-left: 16px;
             display: inline-block;
             height: 100%;
             max-width: 190px;

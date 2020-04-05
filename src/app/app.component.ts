@@ -23,26 +23,26 @@ export class AppComponent implements OnInit {
       url: '/home',
       icon: 'home'
     },
-    {
-      title: 'Exercícios',
-      url: '/exercises',
-      icon: 'create'
-    },
+    // {
+    //   title: 'Exercícios',
+    //   url: '/exercises',
+    //   icon: 'create'
+    // },
     {
       title: 'Pesquisador',
       url: '/search',
       icon: 'search'
     },
-    {
-      title: 'Diccionario',
-      url: '/diccionario',
-      icon: 'book'
-    },
-    {
-      title: 'Acerca do Livre',
-      url: '/about',
-      icon: 'help'
-    },
+    // {
+    //   title: 'Diccionario',
+    //   url: '/diccionario',
+    //   icon: 'book'
+    // },
+    // {
+    //   title: 'Acerca do Livre',
+    //   url: '/about',
+    //   icon: 'help'
+    // },
   ];
 
   constructor(
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
   }
 
   public toogleMenu() {
-    this.widthMenu = this.widthMenu === '0' ? '304px' : '0';
+    this.widthMenu = this.widthMenu === '0' ? '100vw' : '0';
   }
   setTitle(root: string) {
     let title = 'Livre';

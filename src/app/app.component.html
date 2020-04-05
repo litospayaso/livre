@@ -5,9 +5,8 @@
   {{title}}
 </mat-toolbar>
 
-<div class="gray-cover-panel" *ngIf="widthMenu === '304px'" (click)="toogleMenu()"></div>
-<div id="mySidepanel" class="lateral-panel" [ngStyle]="{'width': widthMenu}">
-  <div *ngIf="widthMenu === '304px'">
+<div id="mySidepanel" class="lateral-panel" [ngStyle]="{'width': widthMenu}" (click)="toogleMenu()">
+  <div class="lateral-panel-container">
     <mat-list *ngFor="let page of appPages">
       <mat-list-item [routerLink]="[page.url]" skipLocationChange routerDirection="root" [ngClass]="title === page.title ? 'selected' : ''">
         <mat-icon aria-hidden="false">{{page.icon}}</mat-icon>

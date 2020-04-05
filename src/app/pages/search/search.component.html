@@ -1,3 +1,4 @@
-<p>
-  search works!
-</p>
+<mat-form-field class="search-input">
+  <mat-label fixed><mat-icon>search</mat-icon>Pesquisar</mat-label>
+  <input matInput [(ngModel)]="inputSearch" (ngModelChange)="search()">
+</mat-form-field>
