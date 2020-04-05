@@ -65,7 +65,8 @@ export class AppComponent implements OnInit {
       }
       this.setTitle(routerName);
       if (root.url.split('/').length > 2) {
-        this.title = this.databaseService.getAllData().lessons.find(e => e.number === Number(root.url.split('/').pop())).title;
+        // tslint:disable-next-line: max-line-length
+        this.title = this.databaseService.getAllData().lessons.find(e => e.number === Number(root.url.split('/').pop()) ? Number(root.url.split('/').pop()) : Number(root.url.split('/').pop().split('?')[0])).title;
         this.pageBack = routerName === 'evaluation' ? '/exercises' : '/home';
       } else {
         this.pageBack = '';

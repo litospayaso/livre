@@ -11,7 +11,7 @@ import { DatabaseService } from '@services/database.service';
 })
 export class LessonComponent implements OnInit {
 
-  public lesson: LessonsInterface;
+  public lessonText: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +21,15 @@ export class LessonComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(() => {
-      this.lesson = this.databaseService.getAllData().lessons.find(e => e.number === Number(this.route.snapshot.paramMap.get('id')));
+      // tslint:disable-next-line: max-line-length
+      this.lessonText = this.databaseService.getAllData().lessons.find(e => e.number === Number(this.route.snapshot.paramMap.get('id'))).text;
+    });
+    this.route.queryParamMap.subscribe(queryParams => {
+      if (queryParams.get('search')) {
+        const search = queryParams.get('search');
+        // tslint:disable-next-line: max-line-length
+        this.lessonText = this.databaseService.getAllData().lessons.find(e => e.number === Number(this.route.snapshot.paramMap.get('id'))).text.replace(new RegExp(search, 'gi'),`<span class='highlight'>${search}</span>`);
+      }
     });
   }
 
