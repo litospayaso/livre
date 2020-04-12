@@ -2,7 +2,7 @@
   "exercises" : [
     {
       "number": 1,
-      "exercises": [{"type":"audio","audio":"1x01","responses":["Kaixo!"]},{"type":"galego","question":"Ola, eu som galego","responses":["hola, yo soy gallego"]},{"type":"castelan","question":"Él es Beogan","responses":["Ele é breogan"]}]
+      "exercises": [{"id":"0101","type":"audio","audio":"1x01","responses":["Kaixo!"]},{"id":"0102","type":"galego","question":"Ola, eu som galego","responses":["hola, yo soy gallego"]},{"id":"0103","type":"castelan","question":"Él es Breogan","responses":["Ele é Breogan"]}]
     }
   ],
   "lessons" : [ {
