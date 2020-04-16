@@ -38,11 +38,11 @@ export class AppComponent implements OnInit {
     //   url: '/diccionario',
     //   icon: 'book'
     // },
-    // {
-    //   title: 'Acerca do Livre',
-    //   url: '/about',
-    //   icon: 'help'
-    // },
+    {
+      title: 'Acerca do Livre',
+      url: '/about',
+      icon: 'help'
+    }
   ];
 
   constructor(

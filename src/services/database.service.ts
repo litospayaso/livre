@@ -18,7 +18,8 @@ export class DatabaseService {
   }
 
   public getAllData(): DatabaseInterface {
-    return this.allData;
+    const result = JSON.parse(JSON.stringify(this.allData));
+    return result;
   }
 
   public setData(data: DatabaseInterface) {

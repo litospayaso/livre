@@ -9,6 +9,7 @@ import { LessonsInterface } from '@interfaces/databaseInterface';
 })
 export class HomeComponent implements OnInit {
 
+  private lessonPassed: number[];
   public lessons: LessonsInterface[];
 
   constructor(
@@ -16,7 +17,15 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.lessonPassed = localStorage.getItem('lessonPassed') ? JSON.parse(localStorage.getItem('lessonPassed')) : [];
     this.lessons = this.databaseService.getAllData().lessons;
+  }
+  completeClass(e: number): string {
+    let result = '';
+    if (this.lessonPassed.includes(e)) {
+      result = 'passed';
+    }
+    return result;
   }
 
 }

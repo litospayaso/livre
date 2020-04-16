@@ -85,7 +85,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+@angular/material/button
+
+@angular/material/card
+
 @angular/material/core
+
+@angular/material/dialog
 
 @angular/material/divider
 
@@ -94,6 +100,10 @@ THE SOFTWARE.
 @angular/material/icon
 
 @angular/material/list
+
+@angular/material/menu
+
+@angular/material/snack-bar
 
 @angular/material/toolbar
 

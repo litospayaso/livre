@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '@services/database.service';
 import { LessonsInterface } from '@interfaces/databaseInterface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,8 @@ export class SearchComponent implements OnInit {
   public lessons: LessonsInterface[];
   public inputSearch: string;
   constructor(
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,4 +30,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  goToLesson(lesson) {
+    this.router.navigate(['/lesson', lesson], { queryParams: { search: this.inputSearch }, skipLocationChange: true });
+  }
 }

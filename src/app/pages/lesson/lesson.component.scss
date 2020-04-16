@@ -6,10 +6,11 @@ td, th {
     padding: 5px;
 }
 tr{
-    border-top: solid #808080 1px;
+    border-top: solid #bdbdbd 1px;
 }
 .table{
     width: 100%;
+    border-collapse: collapse;
 }
 .sheet{
     display: inline-block;
@@ -30,4 +31,8 @@ tr{
 }
 .highlight{
     background-color: yellow;
+}
+
+button {
+    width: 100%;
 }

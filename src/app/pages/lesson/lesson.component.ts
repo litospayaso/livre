@@ -12,6 +12,7 @@ import { DatabaseService } from '@services/database.service';
 export class LessonComponent implements OnInit {
 
   public lessonText: string;
+  public lesson: LessonsInterface;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +22,8 @@ export class LessonComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(() => {
-      this.lessonText = this.databaseService.getAllData().lessons.find(e => e.number === Number(this.route.snapshot.paramMap.get('id'))).text;
+      this.lesson = this.databaseService.getAllData().lessons.find(e => e.number === Number(this.route.snapshot.paramMap.get('id')));
+      this.lessonText = this.lesson.text;
     });
     this.route.queryParamMap.subscribe(queryParams => {
       if (queryParams.get('search')) {
