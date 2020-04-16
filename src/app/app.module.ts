@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { PagesModule } from '@pages/pages.module';
 
@@ -23,6 +24,7 @@ import { PagesModule } from '@pages/pages.module';
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
+    MatMenuModule,
     PagesModule
   ],
   providers: [],

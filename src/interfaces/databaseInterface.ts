@@ -4,6 +4,8 @@ export interface DatabaseInterface {
 }
 
 export interface ExerciseInterface {
+    id: string;
+    type: string;
     audio?: string | null;
     responses: string[] ;
     question?: string | null;
@@ -20,4 +22,6 @@ export interface LessonsInterface {
     number: number;
 }
 
-
+export interface DiccionarioInterface {
+    [key: string]: string[];
+}

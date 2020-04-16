@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '@services/database.service';
 import { LessonsInterface } from '@interfaces/databaseInterface';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +13,6 @@ export class SearchComponent implements OnInit {
   public lessons: LessonsInterface[];
   public inputSearch: string;
   constructor(
-    private router: Router,
     private databaseService: DatabaseService
   ) { }
 
@@ -24,15 +22,10 @@ export class SearchComponent implements OnInit {
 
   search() {
     if (this.inputSearch !== '') {
-      // tslint:disable-next-line: max-line-length
       this.lessons = this.rawLessons.filter(e => e.title.toLowerCase().includes(this.inputSearch.toLowerCase()) || e.text.toLowerCase().includes(this.inputSearch.toLowerCase()));
     } else {
       this.lessons = [];
     }
-  }
-
-  goToLesson(lesson) {
-    this.router.navigate(['/lesson', lesson], { queryParams: { search: this.inputSearch }, skipLocationChange: true });
   }
 
 }
