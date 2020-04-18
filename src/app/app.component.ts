@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   public widthMenu = '0';
   public appPages = [
     {
-      title: 'Liçãos',
+      title: 'Liçons',
       url: '/home',
       icon: 'home'
     },
@@ -95,7 +95,7 @@ export class AppComponent implements OnInit {
         title = 'Diccionario';
         break;
       case 'home':
-        title = 'Liçãos';
+        title = 'Liçons';
         break;
       case 'exercises':
         title = 'Exercícios';

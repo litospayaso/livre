@@ -6,20 +6,20 @@
 
     <div *ngIf="exerciseText" class="exercise-text-container">
       <mat-card>
-          <div *ngIf="current.type === 'galego'">
-            <span *ngFor="let word of exerciseText" (click)="translate(word)" [matMenuTriggerFor]="menu">
-              {{word.concat(" ")}}
-            </span>
-            <mat-menu #menu="matMenu">
-              <mat-list>
-                <mat-list-item *ngFor="let translated of translatedWord">{{translated}}</mat-list-item>
-                <mat-divider></mat-divider>
-              </mat-list>
-            </mat-menu>
-          </div>
-          <div *ngIf="current.type === 'castelan'">
-            {{exerciseText.join(" ")}}
-          </div>
+        <div *ngIf="current.type === 'galego'">
+          <span *ngFor="let word of exerciseText" (click)="translate(word)" [matMenuTriggerFor]="menu">
+            {{word.concat(" ")}}
+          </span>
+          <mat-menu #menu="matMenu">
+            <mat-list>
+              <mat-list-item *ngFor="let translated of translatedWord">{{translated}}</mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </mat-menu>
+        </div>
+        <div *ngIf="current.type === 'castelan'">
+          {{exerciseText.join(" ")}}
+        </div>
       </mat-card>
     </div>
 
@@ -30,7 +30,8 @@
         </button>
         <h2>Escucha y escribe</h2>
       </div>
-      <audio controls="controls" id="audioTag" preload="none" autoplay><source [src]="audio" type="audio/mpeg"></audio>
+      <audio controls="controls" id="audioTag" preload="none" autoplay>
+        <source [src]="audio" type="audio/mpeg"></audio>
     </div>
 
     <div class="response-container">
@@ -38,9 +39,9 @@
         <button mat-stroked-button class="play-button" (click)="addAccent('à')">à</button>
         <button mat-stroked-button class="play-button" (click)="addAccent('ê')">ê</button>
         <button mat-stroked-button class="play-button" (click)="addAccent('ô')">ô</button>
-        <button mat-stroked-button class="play-button" (click)="addAccent('ã')">ã</button>
         <button mat-stroked-button class="play-button" (click)="addAccent('õ')">õ</button>
         <button mat-stroked-button class="play-button" (click)="addAccent('ü')">ü</button>
+        <!-- <button mat-stroked-button class="play-button" (click)="addAccent('ã')">ã</button> -->
       </div>
       <mat-form-field class="response-input">
         <mat-label>Resposta</mat-label>
@@ -50,12 +51,13 @@
 
     <div class="buttons-container">
       <div *ngIf="!isCorrecting">
-        <button mat-raised-button full color="primary" (click)="checkResponse()">Corrigir</button> 
+        <button mat-raised-button full color="primary" (click)="checkResponse()">Corrigir</button>
       </div>
       <div *ngIf="isCorrecting">
         <div [className]="evaluationClass">{{isCorrecting}}</div>
-        <button mat-raised-button full color="primary" (click)="continue()">Continuar</button> 
-        <button mat-raised-button full color="secondary" *ngIf="!correctionSent && evaluationClass!=='correct'" (click)="openDialog()">Engadir umha correção</button> 
+        <button mat-raised-button full color="primary" (click)="continue()">Continuar</button>
+        <button mat-raised-button full color="secondary" *ngIf="!correctionSent && evaluationClass!=='correct'"
+          (click)="openDialog()">Engadir umha correçom</button>
       </div>
     </div>
   </div>
@@ -66,7 +68,8 @@
     </div>
     <div class="correct">¡Has completado correctamente la lección!</div>
     <div class="buttons-container">
-      <button mat-raised-button full color="primary" [routerLink]="['/home']" routerDirection="root" skipLocationChange>Voltar às liçãos</button>
+      <button mat-raised-button full color="primary" [routerLink]="['/home']" routerDirection="root"
+        skipLocationChange>Voltar às liçãos</button>
     </div>
   </div>
 
